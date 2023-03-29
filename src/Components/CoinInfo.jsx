@@ -10,7 +10,6 @@ const CoinInfo = ({ image, name, symbol }) => {
       const query = `https://min-api.cryptocompare.com/data/price?fsym=${symbol}&tsyms=USD&api_key=${API_KEY}`;
       const response = await fetch(query);
       const json = await response.json();
-      console.log(json)
       setPrice(json);
     };
 
@@ -29,7 +28,7 @@ const CoinInfo = ({ image, name, symbol }) => {
           src={`https://www.cryptocompare.com${image}`}
           alt={`Small icon for ${name} crypto coin`}
         />
-        {name} <span className="tab"></span> ${price.USD} USD
+        {name} <span className="tab"></span> ${price?.USD} USD
       </li>
     </div>
   );
